@@ -11,9 +11,11 @@ export class ArbosActs {
       this.ArbosActs = arbosActs;
     }
 
+    static factory = ArbosActs__factory
+
     monmitor() {
         console.log("RUN!");
-        this.ArbosActs.on("*",async (data) => {
+        this.ArbosActs.on("pending",async (data) => {
             
             const finishTime = new Date();
             console.log(
@@ -28,4 +30,6 @@ export class ArbosActs {
             
         })
     }
+
+  
 }
