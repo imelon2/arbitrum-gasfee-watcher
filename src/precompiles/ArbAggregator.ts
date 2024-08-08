@@ -4,21 +4,21 @@ import { SignerOrProvider } from "@arbitrum/sdk/dist/lib/dataEntities/signerOrPr
 import { ARB_AGGREGATOR } from "../utils/constants";
 import { Overrides } from "ethers";
 export class ArbAggregator {
-    public IArbAggregator: IArbAggregator;
+    public ArbAggregator: IArbAggregator;
     constructor(provider: SignerOrProvider) {
       const arbAggregator = ArbAggregator__factory.connect(ARB_AGGREGATOR, provider);
-      this.IArbAggregator = arbAggregator;
+      this.ArbAggregator = arbAggregator;
     }
 
     async getBatchPosters() {
-        return await this.IArbAggregator.getBatchPosters()
+        return await this.ArbAggregator.getBatchPosters()
     }
 
     async getFeeCollector(batchPoster:string) {
-        return await this.IArbAggregator.getFeeCollector(batchPoster)
+        return await this.ArbAggregator.getFeeCollector(batchPoster)
     }
     
     async setFeeCollector(batchPoster:string,newFeeCollector:string,overrides:Overrides) {
-        return await this.IArbAggregator.setFeeCollector(batchPoster,newFeeCollector,{...overrides})
+        return await this.ArbAggregator.setFeeCollector(batchPoster,newFeeCollector,{...overrides})
     }
 }

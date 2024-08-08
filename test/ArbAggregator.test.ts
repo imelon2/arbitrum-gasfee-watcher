@@ -17,7 +17,6 @@ async function main() {
         const feeCollector = await arbAggregator.getFeeCollector(batchPosters[i])
         console.log(`[${i}] : ${feeCollector}`); 
     }
-
 }
 
 
