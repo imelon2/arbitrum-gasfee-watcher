@@ -23,6 +23,7 @@ async function main() {
     const txs = await arbProvider.getBlockWithTransactions(a);
     txs.transactions.forEach((tx) => {
       if (tx.data.includes(functionSelector)) {
+      // if (tx.from.toLocaleLowerCase() == ARB_ACTS) {
             const data = JSON.parse(fs.readFileSync(BATCH_POST_REPOST_PATH, 'utf8'))
             data.push(tx);
             fs.writeFileSync(BATCH_POST_REPOST_PATH, JSON.stringify(data, null, 2), 'utf8');
