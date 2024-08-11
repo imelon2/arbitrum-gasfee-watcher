@@ -1,0 +1,51 @@
+{
+    "l1Network": {
+      "blockTime": 10,
+      "chainID": 4693,
+      "explorerUrl": "",
+      "isCustom": true,
+      "name": "EthLocal",
+      "partnerChainIDs": [
+        412346
+      ],
+      "isArbitrum": false
+    },
+    "l2Network": {
+      "chainID": 412346,
+      "confirmPeriodBlocks": 20,
+      "ethBridge": {
+        "bridge": "0x0B9beEb314d35468F190B5a1b7b02Ef22c4BD430",
+        "inbox": "0x1dfF7daad02E6E689Bdd391790370C1B4dEBfA7A",
+        "outbox": "0xb99015580F998A87ea0d473598E2995DCAcB65bb",
+        "rollup": "0x9E014fca164C3658488B95583d493AaB92527082",
+        "sequencerInbox": "0xb930653aD9b65E168882F4f2A2f8bFc4B8771d34"
+      },
+      "explorerUrl": "",
+      "isArbitrum": true,
+      "isCustom": true,
+      "name": "ArbLocal",
+      "partnerChainID": 4693,
+      "retryableLifetimeSeconds": 604800,
+      "nitroGenesisBlock": 0,
+      "nitroGenesisL1Block": 0,
+      "depositTimeout": 900000,
+      "tokenBridge": {
+        "l1CustomGateway": "0x2599BE93aA7A6FD1089322a4Fe996fF244a16a09",
+        "l1ERC20Gateway": "0xCe17f453e360082164FF0af4721B9E4cb6251248",
+        "l1GatewayRouter": "0x7f47D6EB2d846B39AE938aa0E14B66a32A20f63e",
+        "l1MultiCall": "0xFb8cb78a193927a62d91E7EF4A9C1de0154f76Ed",
+        "l1ProxyAdmin": "0x6f45bae398D0eCd9BbFd62a2D1358142D25d2366",
+        "l1Weth": "0x292E0D16f88d3f4a9e93D93227F1f5E051AEAdCe",
+        "l1WethGateway": "0xD8E327c82b0C7D1FeD06030DB402785E7919346a",
+        "l2CustomGateway": "0xF5539b1e5E662bae90F46E1c598293cb501632Bc",
+        "l2ERC20Gateway": "0xAA56013EB577F3110594b9eA352d798f6079005F",
+        "l2GatewayRouter": "0x8a9E9b0671DA56bE5DC903F4011be5f03cBfEcE6",
+        "l2Multicall": "0x7440139228E6E04D1BE2EF9F58b72d4CBF7Ec906",
+        "l2ProxyAdmin": "0x59609A1c524550E25b9640d63C1f1b59FCC71C24",
+        "l2Weth": "0x99150516200dBEd04fC1a04F2A080E34769c7674",
+        "l2WethGateway": "0x5A6aB386901232C8a7F15707afE1263961342198"
+      }
+    },
+    "l1TokenBridgeCreator": "0x54B4D4e578E10178a6cA602bdb6df0F213296Af4",
+    "retryableSender": "0x7713595B6b7FDC26160e8205c32433A3D861C7C9"
+  }

@@ -1,6 +1,9 @@
 import { init } from "../src/utils/common";
 import { ArbAggregator } from "../src/precompiles/ArbAggregator";
 
+/**
+ * ts-node test/ArbAggregator.test.ts 
+ */
 async function main() {
     const { provider, wallet } = init("L2");
 
@@ -20,4 +23,8 @@ async function main() {
 }
 
 
-main()
+
+(async () => {
+    await main();
+    process.exit(0);
+  })();

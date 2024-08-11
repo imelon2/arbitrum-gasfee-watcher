@@ -12,6 +12,14 @@ export class ArbGasInfo {
     this.IArbGasInfo = arbGasInfo;
   }
 
+  async getMinimumGasPrice() {
+    return await this.IArbGasInfo.getMinimumGasPrice();
+  }
+
+  async getCurrentTxL1GasFees() {
+    return await this.IArbGasInfo.getCurrentTxL1GasFees();
+  }
+
   async getL1FeesAvailable() {
     return await this.IArbGasInfo.getL1FeesAvailable();
   }
@@ -30,6 +38,10 @@ export class ArbGasInfo {
 
   async getL1RewardRecipient() {
     return await this.IArbGasInfo.getL1RewardRecipient();
+  }
+
+  async getL1BaseFeeEstimate() {
+    return await this.IArbGasInfo.getL1BaseFeeEstimate();
   }
 
   async getL1PricingUnitsSinceUpdate() {
@@ -55,4 +67,6 @@ export class ArbGasInfo {
       });
     return BigNumber.from(_LastUpdateTime)
   }
+
+
 }
