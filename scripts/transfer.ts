@@ -2,16 +2,18 @@ import { BigNumber, Wallet, ethers } from "ethers";
 import { init } from "../src/utils/common";
 import { ArbitrumProvider } from "@arbitrum/sdk";
 import { formatEther, formatUnits } from "ethers/lib/utils";
+import { ArbOwnerPublic } from "../src/precompiles/ArbOwnerPublic";
 
 /**
  * ts-node scripts/transfer.ts
  */
 async function main() {
   const { provider, wallet } = init("L2");
-
-  const value = BigNumber.from(1).mul(BigNumber.from(10).pow(16)); // 0.01 ETH
-  const to = "0x10012d9D7365bD937d5c28f786045D7C93EDc7eC"
-  const NetworkFeeAccount = "0xd7464B89f726EcE721B4fcB7a90732387b23E6fc";
+  const arbOwnerPublic = new ArbOwnerPublic(wallet);
+  
+  const value = BigNumber.from(100).mul(BigNumber.from(10).pow(18)); // 0.01 ETH
+  const to = "0x940e3cb4F37ae0259499E71F3A558b5De0471fa0"
+  const NetworkFeeAccount = await arbOwnerPublic.getNetworkFeeAccount()
   const L1PricerFundsPool =
   "0xA4B00000000000000000000000000000000000f6".toLowerCase();
   

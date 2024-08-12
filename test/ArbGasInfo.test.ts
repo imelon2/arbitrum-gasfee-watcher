@@ -7,7 +7,7 @@ import { init } from "../src/utils/common";
  * ts-node test/ArbGasInfo.test.ts 
  */
 async function main() {
-    const { provider, wallet } = init("L2");
+    const { provider, wallet } = init("L3");
 
     const gasInfo = new ArbGasInfo(wallet)
 
