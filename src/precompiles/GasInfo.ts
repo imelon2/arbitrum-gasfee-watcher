@@ -12,6 +12,10 @@ export class ArbGasInfo {
     this.IArbGasInfo = arbGasInfo;
   }
 
+  async GetL1GasPriceEstimate() {
+    return await this.IArbGasInfo.getL1GasPriceEstimate();
+  }
+
   async getMinimumGasPrice() {
     return await this.IArbGasInfo.getMinimumGasPrice();
   }

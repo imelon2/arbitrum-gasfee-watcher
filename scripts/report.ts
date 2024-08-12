@@ -4,6 +4,7 @@ import { getBatchTransactionByNumber, init } from '../src/utils/common';
 import { BATCH_POST_REPORT_CALLDATA_PATH, BATCH_POST_REPORT_PATH } from '../src/utils/path';
 import fs from 'fs';
 import { formatEther } from 'ethers/lib/utils';
+import { parseBatchReport } from '../src/utils/parse';
 
 /**
  *  ts-node scripts/report.ts
@@ -13,7 +14,7 @@ async function main() {
   const { provider:l2Provider, wallet:l2Wallet } = init('L2');
 
   const gasInfo = new ArbGasInfo(l2Wallet);
-  const reportCalldata = JSON.parse(fs.readFileSync(BATCH_POST_REPORT_CALLDATA_PATH, 'utf8'));
+  const reportCalldata = await parseBatchReport(l2Provider)
 
   const reports = Object.keys(reportCalldata);
   let perBatchGas = await gasInfo.getPerBatchGasCharge();
@@ -60,12 +61,14 @@ async function main() {
     console.log(`updateTime : ${updateTime}`);
     console.log(`currentTime : ${currentTime}\n`);
 
+    // let UnitsSinceUpdate = await gasInfo.getL1PricingUnitsSinceUpdate()
     const allocationNumerator = updateTime.sub(LastUpdateTime);
     const allocationDenominator = currentTime.sub(LastUpdateTime);
     // const unitsAllocated = UnitsSinceUpdate.mul(allocationNumerator).div(allocationDenominator)
 
     console.log(`allocationNumerator : ${allocationNumerator}`);
     console.log(`allocationDenominator : ${allocationDenominator}`);
+    // console.log(`unitsAllocated : ${unitsAllocated}`);
 
     const { calls } = await l2Provider.send('debug_traceTransaction', [currentReportHash, { tracer: 'callTracer' }]);
     console.log(calls);

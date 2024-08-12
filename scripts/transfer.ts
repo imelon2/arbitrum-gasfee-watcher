@@ -11,7 +11,7 @@ async function main() {
   const { provider, wallet } = init("L2");
   const arbOwnerPublic = new ArbOwnerPublic(wallet);
   
-  const value = BigNumber.from(100).mul(BigNumber.from(10).pow(18)); // 0.01 ETH
+  const value = BigNumber.from(1).mul(BigNumber.from(10).pow(16)); // 0.01 ETH
   const to = "0x940e3cb4F37ae0259499E71F3A558b5De0471fa0"
   const NetworkFeeAccount = await arbOwnerPublic.getNetworkFeeAccount()
   const L1PricerFundsPool =

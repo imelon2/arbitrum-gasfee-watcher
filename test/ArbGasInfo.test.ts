@@ -7,7 +7,7 @@ import { init } from "../src/utils/common";
  * ts-node test/ArbGasInfo.test.ts 
  */
 async function main() {
-    const { provider, wallet } = init("L3");
+    const { provider, wallet } = init("L2");
 
     const gasInfo = new ArbGasInfo(wallet)
 
@@ -15,12 +15,14 @@ async function main() {
     console.log(`L1FeesAvailable : ${l1FeesAvailable}`);
     let L1BaseFeeEstimate = await gasInfo.getL1BaseFeeEstimate()
     console.log(`L1BaseFeeEstimate : ${L1BaseFeeEstimate}`);
-    // let UnitsSinceUpdate = await gasInfo.getL1PricingUnitsSinceUpdate()
-    // console.log(`UnitsSinceUpdate : ${UnitsSinceUpdate}`);
-    // let fundsDueForRewards = await gasInfo.getL1PricingFundsDueForRewards()
-    // console.log(`FundsDueForRewards : ${fundsDueForRewards}`);
-    // let LastUpdateTime = await gasInfo.getLastL1PricingUpdateTime()
-    // console.log(`LastUpdateTime : ${LastUpdateTime}`);
+    let L1GasPriceEstimate = await gasInfo.GetL1GasPriceEstimate() // == L1BaseFeeEstimate
+    console.log(`L1GasPriceEstimate : ${L1GasPriceEstimate}`);
+    let UnitsSinceUpdate = await gasInfo.getL1PricingUnitsSinceUpdate()
+    console.log(`UnitsSinceUpdate : ${UnitsSinceUpdate}`);
+    let fundsDueForRewards = await gasInfo.getL1PricingFundsDueForRewards()
+    console.log(`FundsDueForRewards : ${fundsDueForRewards}`);
+    let LastUpdateTime = await gasInfo.getLastL1PricingUpdateTime()
+    console.log(`LastUpdateTime : ${LastUpdateTime}`);
     let amortizedCostCapBips = await gasInfo.getAmortizedCostCapBips()
     console.log(`amortizedCostCapBips : ${amortizedCostCapBips}`);
     let perBatchGas = await gasInfo.getPerBatchGasCharge()
@@ -34,6 +36,8 @@ async function main() {
     let CurrentTxL1GasFees = await gasInfo.getCurrentTxL1GasFees()
     console.log(`CurrentTxL1GasFees : ${CurrentTxL1GasFees}`);
 
+    console.log("###################################");
+    
     // perBatchGas, err := l1p.PerBatchGasCost()
     // gasSpent := arbmath.SaturatingAdd(perBatchGas, arbmath.SaturatingCast[int64](batchDataGas))
     // weiSpent := arbmath.BigMulByUint(l1BaseFeeWei, arbmath.SaturatingUCast[uint64](gasSpent))

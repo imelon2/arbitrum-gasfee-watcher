@@ -17,6 +17,10 @@ export class ArbOwner {
         return await this.ArbOwner.setL1PricePerUnit(newPricePerUnit,{...overrides})
     }
 
+    async scheduleArbOSUpgrade(newVersion:BigNumber,timestamp:BigNumber,overrides:Overrides) {
+        return await this.ArbOwner.scheduleArbOSUpgrade(newVersion,timestamp,{...overrides})
+    }
+
 
   
 }
