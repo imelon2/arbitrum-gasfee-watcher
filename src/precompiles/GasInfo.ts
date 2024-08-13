@@ -12,6 +12,14 @@ export class ArbGasInfo {
     this.IArbGasInfo = arbGasInfo;
   }
 
+  async getL1PricingSurplus() {
+    return await this.IArbGasInfo.getL1PricingSurplus();
+  }
+
+  async GetL1BaseFeeEstimateInertia() {
+    return await this.IArbGasInfo.getL1BaseFeeEstimateInertia();
+  }
+
   async GetL1GasPriceEstimate() {
     return await this.IArbGasInfo.getL1GasPriceEstimate();
   }
@@ -72,5 +80,20 @@ export class ArbGasInfo {
     return BigNumber.from(_LastUpdateTime)
   }
 
+  async GetL1PricingEquilibrationUnits() {
+    const _LastUpdateTime = await this.IArbGasInfo.provider.call({
+        to: ARB_GAS_INFO,
+        data: getFunctionSelector("getL1PricingEquilibrationUnits()"),
+      });
+    return BigNumber.from(_LastUpdateTime)
+  }
+
+  async getLastL1PricingSurplus() {
+    const _LastUpdateTime = await this.IArbGasInfo.provider.call({
+        to: ARB_GAS_INFO,
+        data: getFunctionSelector("getLastL1PricingSurplus()"),
+      });
+    return BigNumber.from(_LastUpdateTime)
+  }
 
 }

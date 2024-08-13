@@ -1,74 +1,55 @@
 {
-  "0x2f6a46bea3ca6d53fe58e64e6c68e82de3b73645e30c43e927b95b6805fa5231": {
+  "0x1faf84759ae7e32c2bd9c7a4971e887887519a5846591ada2747b28d96fd4a8b": {
     "batchTimestamp": {
       "type": "BigNumber",
-      "hex": "0x66ba20bc"
+      "hex": "0x66bb4b2a"
     },
     "batchPosterAddress": "0x837afeFc193f02A3C8CAdb9A179eD28f24A1ABFd",
     "batchNumber": {
       "type": "BigNumber",
-      "hex": "0x38"
+      "hex": "0x41"
     },
     "batchDataGas": {
       "type": "BigNumber",
-      "hex": "0xc222"
+      "hex": "0xa606"
     },
     "l1BaseFeeWei": {
       "type": "BigNumber",
       "hex": "0x07"
     }
   },
-  "0xf5993e61499a37488962e358e48b2ae87fcb819216929f11aa48ac983c17890b": {
+  "0x9fdd1dd9f92c4269ad97b482295a6cd3e102e7c26da0289f949fb8000e1fe453": {
     "batchTimestamp": {
       "type": "BigNumber",
-      "hex": "0x66ba20e6"
+      "hex": "0x66bb4b66"
     },
     "batchPosterAddress": "0x837afeFc193f02A3C8CAdb9A179eD28f24A1ABFd",
     "batchNumber": {
       "type": "BigNumber",
-      "hex": "0x39"
+      "hex": "0x42"
     },
     "batchDataGas": {
       "type": "BigNumber",
-      "hex": "0xea82"
+      "hex": "0xad9a"
     },
     "l1BaseFeeWei": {
       "type": "BigNumber",
       "hex": "0x07"
     }
   },
-  "0x1837353ab9a555016b9eacc3c6ac972dd5764e745084465b79da33d1543f4477": {
+  "0xc45f78b2d33d83b680807667332eb4f68484cab2a54be07d4bacb953d9007857": {
     "batchTimestamp": {
       "type": "BigNumber",
-      "hex": "0x66ba2110"
+      "hex": "0x66bb4ba2"
     },
     "batchPosterAddress": "0x837afeFc193f02A3C8CAdb9A179eD28f24A1ABFd",
     "batchNumber": {
       "type": "BigNumber",
-      "hex": "0x3a"
+      "hex": "0x43"
     },
     "batchDataGas": {
       "type": "BigNumber",
-      "hex": "0xa602"
-    },
-    "l1BaseFeeWei": {
-      "type": "BigNumber",
-      "hex": "0x07"
-    }
-  },
-  "0xc67e89181af643d9a4f1d9ee6d81ab6f20b2ed9b763d2e59a52b16667a8b1b76": {
-    "batchTimestamp": {
-      "type": "BigNumber",
-      "hex": "0x66ba214c"
-    },
-    "batchPosterAddress": "0x837afeFc193f02A3C8CAdb9A179eD28f24A1ABFd",
-    "batchNumber": {
-      "type": "BigNumber",
-      "hex": "0x3b"
-    },
-    "batchDataGas": {
-      "type": "BigNumber",
-      "hex": "0xd8f0"
+      "hex": "0xadaa"
     },
     "l1BaseFeeWei": {
       "type": "BigNumber",
