@@ -36,6 +36,7 @@ async function main() {
   console.log(`signed tx length : ${signed.length}`);
   
   const re = await provider.sendTransaction(signed);
+  console.log(`Tx Hash : ${re.hash}`);
   const receipt = await re.wait();
   
   

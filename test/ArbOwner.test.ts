@@ -6,7 +6,7 @@ import { init } from "../src/utils/common";
  * ts-node test/ArbOwner.test.ts
  */
 async function main() {
-  const { wsProviders, provider,wallet } = init("L2");
+  const { wsProviders, provider,wallet } = init("L3");
   const arbProvider = new ArbOwner(wallet);
 
   // const res = await arbProvider.setL1PricePerUnit(BigNumber.from(100000000),{})
@@ -16,9 +16,9 @@ async function main() {
   const time = Math.floor(Date.now() / 1000);
   console.log(time);
   
-  // const res = await arbProvider.scheduleArbOSUpgrade(BigNumber.from(20),BigNumber.from(time+10),{})
-  // const receipt = await res.wait()
-  // console.log(receipt);
+  const res = await arbProvider.scheduleArbOSUpgrade(BigNumber.from(20),BigNumber.from(time+10),{gasLimit:100000})
+  const receipt = await res.wait()
+  console.log(receipt);
   
 }
 

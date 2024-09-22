@@ -1,7 +1,8 @@
 export class TaskQueue {
     private tasks: (() => Promise<void>)[] = [];
     private isProcessing = false;
-  
+    private latestBlockNumber :number;
+
     public addTask(task: () => Promise<void>) {
       this.tasks.push(task);
       if (!this.isProcessing) {

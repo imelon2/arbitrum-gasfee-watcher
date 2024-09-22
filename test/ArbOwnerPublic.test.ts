@@ -5,7 +5,7 @@ import { init } from "../src/utils/common";
  * ts-node test/ArbOwnerPublic.test.ts
  */
 async function main() {
-  const { wsProviders, provider, wallet } = init("L2");
+  const { wsProviders, provider, wallet } = init("L3");
   const arbProvider = new ArbOwnerPublic(wallet);
 
   const NetworkFeeAccount = await arbProvider.getNetworkFeeAccount()

@@ -1,51 +1,51 @@
 {
-    "l1Network": {
-      "blockTime": 10,
-      "chainID": 4693,
-      "explorerUrl": "",
-      "isCustom": true,
-      "name": "EthLocal",
-      "partnerChainIDs": [
-        412346
-      ],
-      "isArbitrum": false
+  "l1Network": {
+    "blockTime": 10,
+    "chainID": 4693,
+    "explorerUrl": "",
+    "isCustom": true,
+    "name": "EthLocal",
+    "partnerChainIDs": [
+      412346
+    ],
+    "isArbitrum": false
+  },
+  "l2Network": {
+    "chainID": 412346,
+    "confirmPeriodBlocks": 20,
+    "ethBridge": {
+      "bridge": "0x9E38Ca85aeF4210f8b1E74E15801Da1A8ae67a08",
+      "inbox": "0x49ECd823BD881612B6763E1D212c7Ec8F4a59455",
+      "outbox": "0x4facc68973381b76e32B9057EA3EBA66751B1B42",
+      "rollup": "0x9Fbe19B127ed322fB27BcAF777e3128898485159",
+      "sequencerInbox": "0x967366f2E1c917ddecE3B4C9A16f75bB80f667c3"
     },
-    "l2Network": {
-      "chainID": 412346,
-      "confirmPeriodBlocks": 20,
-      "ethBridge": {
-        "bridge": "0x0B9beEb314d35468F190B5a1b7b02Ef22c4BD430",
-        "inbox": "0x1dfF7daad02E6E689Bdd391790370C1B4dEBfA7A",
-        "outbox": "0xb99015580F998A87ea0d473598E2995DCAcB65bb",
-        "rollup": "0x9E014fca164C3658488B95583d493AaB92527082",
-        "sequencerInbox": "0xb930653aD9b65E168882F4f2A2f8bFc4B8771d34"
-      },
-      "explorerUrl": "",
-      "isArbitrum": true,
-      "isCustom": true,
-      "name": "ArbLocal",
-      "partnerChainID": 4693,
-      "retryableLifetimeSeconds": 604800,
-      "nitroGenesisBlock": 0,
-      "nitroGenesisL1Block": 0,
-      "depositTimeout": 900000,
-      "tokenBridge": {
-        "l1CustomGateway": "0x2599BE93aA7A6FD1089322a4Fe996fF244a16a09",
-        "l1ERC20Gateway": "0xCe17f453e360082164FF0af4721B9E4cb6251248",
-        "l1GatewayRouter": "0x7f47D6EB2d846B39AE938aa0E14B66a32A20f63e",
-        "l1MultiCall": "0xFb8cb78a193927a62d91E7EF4A9C1de0154f76Ed",
-        "l1ProxyAdmin": "0x6f45bae398D0eCd9BbFd62a2D1358142D25d2366",
-        "l1Weth": "0x292E0D16f88d3f4a9e93D93227F1f5E051AEAdCe",
-        "l1WethGateway": "0xD8E327c82b0C7D1FeD06030DB402785E7919346a",
-        "l2CustomGateway": "0xF5539b1e5E662bae90F46E1c598293cb501632Bc",
-        "l2ERC20Gateway": "0xAA56013EB577F3110594b9eA352d798f6079005F",
-        "l2GatewayRouter": "0x8a9E9b0671DA56bE5DC903F4011be5f03cBfEcE6",
-        "l2Multicall": "0x7440139228E6E04D1BE2EF9F58b72d4CBF7Ec906",
-        "l2ProxyAdmin": "0x59609A1c524550E25b9640d63C1f1b59FCC71C24",
-        "l2Weth": "0x99150516200dBEd04fC1a04F2A080E34769c7674",
-        "l2WethGateway": "0x5A6aB386901232C8a7F15707afE1263961342198"
-      }
-    },
-    "l1TokenBridgeCreator": "0x54B4D4e578E10178a6cA602bdb6df0F213296Af4",
-    "retryableSender": "0x7713595B6b7FDC26160e8205c32433A3D861C7C9"
-  }
+    "explorerUrl": "",
+    "isArbitrum": true,
+    "isCustom": true,
+    "name": "ArbLocal",
+    "partnerChainID": 4693,
+    "retryableLifetimeSeconds": 604800,
+    "nitroGenesisBlock": 0,
+    "nitroGenesisL1Block": 0,
+    "depositTimeout": 900000,
+    "tokenBridge": {
+      "l1CustomGateway": "0x27D79DCa97d31B20Fe31869056Fdb0A36125C2d1",
+      "l1ERC20Gateway": "0x94E57B996Ef9c0F7330418c65Cb958EBEAA4808c",
+      "l1GatewayRouter": "0x9E7E8EFf85B5B73e24F6001F339859A3dA5af5B3",
+      "l1MultiCall": "0x666C050907b1f819CED9E1b79E4198455504A633",
+      "l1ProxyAdmin": "0x0fa3b7d65Bd26BA7Bb9AAAaF4e850e1A347B15f2",
+      "l1Weth": "0x0032DC9988CFAF48e9dFbb6d4c2BB390b5C55347",
+      "l1WethGateway": "0x6dea10aF6aC94F9A62CEBa2332C936C77F215142",
+      "l2CustomGateway": "0x89597cA74d8A5727A2B53e06E41C49b1FBE0d33A",
+      "l2ERC20Gateway": "0xBE4263770c790f9014C1017090211c82D73094f8",
+      "l2GatewayRouter": "0xE479cdde743Da4dA3a133986321e08C6d9521715",
+      "l2Multicall": "0xB33936c068949209f66b84345c2195F61Bb41D90",
+      "l2ProxyAdmin": "0x3068f95122aD0F8742065cA340743D9EF9b834b0",
+      "l2Weth": "0x2198D43C6adC89a9d1f0e138dbF4ccB8560f88A0",
+      "l2WethGateway": "0xA877609BC916a7E2aAd56c7956640300d9E495E5"
+    }
+  },
+  "l1TokenBridgeCreator": "0xb4Fb22F9f302dAA613a36b5Caf908733BA263AB8",
+  "retryableSender": "0xDDE22F9FF970239C6c278CB315A770B1d34615F1"
+}

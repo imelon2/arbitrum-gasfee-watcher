@@ -1,52 +1,82 @@
 import { BigNumber } from "ethers";
 import { ArbGasInfo } from "../src/precompiles/GasInfo";
 import { init } from "../src/utils/common";
+import { ArbSys } from "../src/precompiles/ArbSys";
 
 /**
  * 
  * ts-node test/ArbGasInfo.test.ts 
  */
 async function main() {
-    const { provider, wallet } = init("L2");
+    const { provider, wallet } = init("L3");
 
     const gasInfo = new ArbGasInfo(wallet)
+    const arbAggregator = new ArbSys(wallet)
+    const arbOSVersion = await arbAggregator.arbOSVersion()
 
-    console.log("## L1 Pricing Config ##");
-    let l1FeesAvailable = await gasInfo.getL1FeesAvailable()
-    let L1BaseFeeEstimate = await gasInfo.getL1BaseFeeEstimate()
-    // let L1GasPriceEstimate = await gasInfo.GetL1GasPriceEstimate() // == L1BaseFeeEstimate
-    let UnitsSinceUpdate = await gasInfo.getL1PricingUnitsSinceUpdate()
-    let fundsDueForRewards = await gasInfo.getL1PricingFundsDueForRewards()
-    let LastUpdateTime = await gasInfo.getLastL1PricingUpdateTime()
-    // let L1PricingSurplus = await gasInfo.getL1PricingSurplus()// == getLastL1PricingSurplus
-    let LastL1PricingSurplus = await gasInfo.getLastL1PricingSurplus()
-    console.log(`L1FeesAvailable      : ${l1FeesAvailable}`);
-    // console.log(`L1GasPriceEstimate : ${L1GasPriceEstimate}`); // == L1BaseFeeEstimate
-    console.log(`L1BaseFeeEstimate    : ${L1BaseFeeEstimate}`);
-    console.log(`UnitsSinceUpdate     : ${UnitsSinceUpdate}`);
-    console.log(`FundsDueForRewards   : ${fundsDueForRewards}`);
-    console.log(`LastUpdateTime       : ${LastUpdateTime}`);
-    console.log(`LastL1PricingSurplus : ${LastL1PricingSurplus}`);
-    // console.log(`L1PricingSurplus     : ${L1PricingSurplus}`); // == LastL1PricingSurplus
-    
-    console.log();
-    console.log("## Network Constant ##");
-    let MinimumGasPrice = await gasInfo.getMinimumGasPrice()
-    let amortizedCostCapBips = await gasInfo.getAmortizedCostCapBips()
-    let EquilibrationUnits = await gasInfo.GetL1PricingEquilibrationUnits()
-    let Inertia = await gasInfo.GetL1BaseFeeEstimateInertia()
-    let perBatchGas = await gasInfo.getPerBatchGasCharge()
-    let perUnitReward = await gasInfo.getL1RewardRate()
-    let _payRewardsTo = await gasInfo.getL1RewardRecipient()
-    console.log(`PayRewardsTo         : ${_payRewardsTo}`);
-    console.log(`MinimumGasPrice      : ${MinimumGasPrice}`);
-    console.log(`PerBatchGasCharge    : ${perBatchGas}`);
-    console.log(`PerUnitReward        : ${perUnitReward}`);
-    console.log(`AmortizedCostCapBips : ${amortizedCostCapBips}`);
-    console.log(`EquilibrationUnits   : ${EquilibrationUnits}`);
-    console.log(`Inertia              : ${Inertia}`);
-    console.log();
-    console.log();
+    if(Number(arbOSVersion.sub(55)) >= 20) {
+        console.log("## L1 Pricing Config ##");
+        let l1FeesAvailable = await gasInfo.getL1FeesAvailable()
+        let L1BaseFeeEstimate = await gasInfo.getL1BaseFeeEstimate() // PricePerUnit()
+        // let L1GasPriceEstimate = await gasInfo.GetL1GasPriceEstimate() // == L1BaseFeeEstimate
+        let UnitsSinceUpdate = await gasInfo.getL1PricingUnitsSinceUpdate() // 20
+        let fundsDueForRewards = await gasInfo.getL1PricingFundsDueForRewards() // 20
+        let LastUpdateTime = await gasInfo.getLastL1PricingUpdateTime() // 20
+        // let L1PricingSurplus = await gasInfo.getL1PricingSurplus()// == getLastL1PricingSurplus 20
+        let LastL1PricingSurplus = await gasInfo.getLastL1PricingSurplus()
+        console.log(`L1FeesAvailable      : ${l1FeesAvailable}`);
+        // console.log(`L1GasPriceEstimate : ${L1GasPriceEstimate}`); // == L1BaseFeeEstimate
+        console.log(`L1BaseFeeEstimate    : ${L1BaseFeeEstimate} *PricePerUnit`);
+        console.log(`UnitsSinceUpdate     : ${UnitsSinceUpdate}`);
+        console.log(`FundsDueForRewards   : ${fundsDueForRewards}`);
+        console.log(`LastUpdateTime       : ${LastUpdateTime}`);
+        console.log(`LastL1PricingSurplus : ${LastL1PricingSurplus}`);
+        // console.log(`L1PricingSurplus     : ${L1PricingSurplus}`); // == LastL1PricingSurplus
+        
+        console.log();
+        console.log("## Network Constant ##");
+        let MinimumGasPrice = await gasInfo.getMinimumGasPrice()
+        let amortizedCostCapBips = await gasInfo.getAmortizedCostCapBips()
+        let EquilibrationUnits = await gasInfo.GetL1PricingEquilibrationUnits() // 20
+        let Inertia = await gasInfo.GetL1BaseFeeEstimateInertia()
+        let perBatchGas = await gasInfo.getPerBatchGasCharge()
+        let perUnitReward = await gasInfo.getL1RewardRate()
+        let _payRewardsTo = await gasInfo.getL1RewardRecipient()
+        console.log(`PayRewardsTo         : ${_payRewardsTo}`);
+        console.log(`MinimumGasPrice      : ${MinimumGasPrice}`);
+        console.log(`PerBatchGasCharge    : ${perBatchGas}`);
+        console.log(`PerUnitReward        : ${perUnitReward}`);
+        console.log(`AmortizedCostCapBips : ${amortizedCostCapBips}`);
+        console.log(`EquilibrationUnits   : ${EquilibrationUnits}`);
+        console.log(`Inertia              : ${Inertia}`);
+        console.log();
+        console.log();
+
+    } else {
+        console.log("## L1 Pricing Config ##");
+        let l1FeesAvailable = await gasInfo.getL1FeesAvailable()
+        let L1BaseFeeEstimate = await gasInfo.getL1BaseFeeEstimate()
+        let L1PricingSurplus = await gasInfo.getL1PricingSurplus() // getLastL1PricingSurplus
+        console.log(`L1FeesAvailable      : ${l1FeesAvailable}`);
+        console.log(`L1BaseFeeEstimate    : ${L1BaseFeeEstimate}`);
+        console.log(`L1PricingSurplus     : ${L1PricingSurplus}`);
+        console.log();
+        console.log("## Network Constant ##");
+        let MinimumGasPrice = await gasInfo.getMinimumGasPrice()
+        let amortizedCostCapBips = await gasInfo.getAmortizedCostCapBips()
+        let Inertia = await gasInfo.GetL1BaseFeeEstimateInertia()
+        let perBatchGas = await gasInfo.getPerBatchGasCharge()
+        let perUnitReward = await gasInfo.getL1RewardRate()
+        let _payRewardsTo = await gasInfo.getL1RewardRecipient()
+        console.log(`PayRewardsTo         : ${_payRewardsTo}`);
+        console.log(`MinimumGasPrice      : ${MinimumGasPrice}`);
+        console.log(`PerBatchGasCharge    : ${perBatchGas}`);
+        console.log(`PerUnitReward        : ${perUnitReward}`);
+        console.log(`AmortizedCostCapBips : ${amortizedCostCapBips}`);
+        console.log(`Inertia              : ${Inertia}`);
+        console.log();
+        console.log();
+    }
     
 
     // let CurrentTxL1GasFees = await gasInfo.getCurrentTxL1GasFees()

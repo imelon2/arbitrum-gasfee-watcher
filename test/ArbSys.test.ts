@@ -6,7 +6,7 @@ import { ArbSys } from "../src/precompiles/ArbSys";
  * ts-node test/ArbSys.test.ts 
  */
 async function main() {
-    const { provider, wallet } = init("L2");
+    const { provider, wallet } = init("L3");
 
     const arbAggregator = new ArbSys(wallet)
 
