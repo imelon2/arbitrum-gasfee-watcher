@@ -5,6 +5,7 @@ import fs from 'fs';
 import { BATCH_POST_REPORT_PATH } from '../src/utils/path';
 import { Subject } from 'rxjs';
 import { ethers } from 'ethers';
+import { ansi } from '../src/utils/logStyle';
 
 /**
  * ts-node scripts/CollectReport.ts
@@ -27,11 +28,18 @@ async function main() {
     },
   });
 
+
+  console.log(
+    `${ansi.Yellow}[MONITOR LOG] Find Batch Post Report Transaction On Arbitrum${ansi.reset}`
+  );
   wsProviders.on('block', async (block) => {
     const txs = await arbProvider.getBlockWithTransactions(block);
     txs.transactions.forEach((tx) => {
       if (tx.to?.toLocaleLowerCase() == ARB_ACTS.toLocaleLowerCase() && tx.data.includes(functionSelector)) {
-        subject.next(tx);
+        console.log("Report Transaction Hash : "+tx.hash);
+
+        // cache
+        subject.next(tx)
       }
     });
   });

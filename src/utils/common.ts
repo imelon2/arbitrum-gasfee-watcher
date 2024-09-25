@@ -17,6 +17,7 @@ export const init = (chain:IChainName) => {
         "L2":new ethers.providers.JsonRpcProvider(process.env.L2_URL),
         "L3":new ethers.providers.JsonRpcProvider(process.env.L3_URL)
     }
+    
     const wsProviders = {
         "L1": new ethers.providers.WebSocketProvider(process.env.L1_WS_URL || ""),
         "L2":new ethers.providers.WebSocketProvider(process.env.L2_WS_URL || ""),
